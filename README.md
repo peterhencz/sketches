@@ -1,1 +1,3 @@
-# sketches
+# sketches 🦛
+
+js && css sketches
