@@ -6,9 +6,9 @@ let t = 1;
 
 function setup() {
   createCanvas(900, 900);
-  slider = createSlider(0, 200, 0.001);
-  slider2 = createSlider(1, 100, 0.01);
-  slider3 = createSlider(1, 10, 0.1);
+  sliderCica = createSlider(0, 200, 1);
+  sliderKutya = createSlider(1, 100, 1);
+  sliderZ = createSlider(1, 5, 1, 0.01);
 }
 
 function draw() {
@@ -19,13 +19,13 @@ function draw() {
   fill("#f4baba");
   noFill();
   beginShape();
-  let cica = slider.value();
-  let kutya = slider2.value() / 100;
-  let z = slider3.value() / 1000;
+  let cica = sliderCica.value();
+  let kutya = sliderKutya.value() / 100;
+  let z = sliderZ.value() / 100;
   console.log(z);
-  for (let a = 0; a < TWO_PI; a += 0.001) {
-    let xoff = map(cos(a + phase), -1, kutya, 0, noiseMax);
-    let yoff = map(sin(a + phase), -1, kutya, 0, noiseMax);
+  for (let a = 0; a < TWO_PI; a += 0.01) {
+    let xoff = map(cos(a + phase), -1, noise(1), 0, noiseMax);
+    let yoff = map(sin(a + phase), -1, noise(1), 0, noiseMax);
     // let xoff = map(cos(a), -1, 1, 0, noiseMax);
     // let yoff = map(sin(a), -1, 1, 1, noiseMax);
     let r = map(noise(xoff, yoff, zoff), 0, 1, 150, cica * 1.5);
