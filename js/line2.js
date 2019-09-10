@@ -21,14 +21,14 @@ function draw() {
   beginShape();
   let cica = sliderCica.value();
   let kutya = sliderKutya.value() / 100;
-  let z = sliderZ.value() / 100;
+  let z = sliderZ.value() / 1000;
   console.log(z);
   for (let a = 0; a < TWO_PI; a += 0.01) {
     let xoff = map(cos(a + phase), -1, noise(1), 0, noiseMax);
     let yoff = map(sin(a + phase), -1, noise(1), 0, noiseMax);
     // let xoff = map(cos(a), -1, 1, 0, noiseMax);
     // let yoff = map(sin(a), -1, 1, 1, noiseMax);
-    let r = map(noise(xoff, yoff, zoff), 0, 1, 150, cica * 1.5);
+    let r = map(noise(xoff, yoff, zoff), 0, 1, 300, cica * 1.8);
     let x = r * cos(a);
     let y = r * sin(a);
     vertex(x, y);
